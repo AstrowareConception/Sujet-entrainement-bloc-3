@@ -10,7 +10,7 @@ LogiTemp est une plateforme de traçabilité des expéditions réfrigérées exp
 
 ### LT-01 — Horodatage décalé
 
-Une mesure prise à Pointe-à-Pitre à `2026-10-10T09:15:00-04:00` est affichée comme si elle avait été prise quatre heures plus tard. Il faut conserver l'instant absolu : `2026-10-10T13:15:00Z`. Vérifiez aussi un autre fuseau et la persistance UTC en PostgreSQL.
+Une mesure prise à Pointe-à-Pitre à `2026-10-10T09:15:00-04:00` ressort de l'API comme `09:15Z`, soit **05:15 à Pointe-à-Pitre**, quatre heures trop tôt. Elle doit être enregistrée comme l'instant absolu `2026-10-10T13:15:00Z`. Vérifiez aussi un autre fuseau et la persistance UTC en PostgreSQL.
 
 ### LT-02 — CORS depuis Angular
 
@@ -22,7 +22,7 @@ Implémentez `POST /api/shipments/import` acceptant `{"shipments":[{"trackingCod
 
 ### LT-04 — Libération par un utilisateur non habilité
 
-`PATCH /api/shipments/{id}/release` : seuls les utilisateurs `ROLE_QUALITY` peuvent faire passer le statut de `CREATED` à `RELEASED`. Pour `ROLE_OPERATOR`, réponse 403, état inchangé. Appel anonyme : 401. Tester nominal et refus.
+`PATCH /api/shipments/{id}/release` : seuls les utilisateurs `ROLE_QUALITY` peuvent faire passer le statut de `CREATED` à `RELEASED`. Pour `ROLE_OPERATOR`, réponse 403, état inchangé. Appel anonyme : 401. La méthode du service doit être protégée par `@PreAuthorize` (configuration déjà activée) ; tester le cas nominal et les refus. Cette exigence correspond au test de départ.
 
 ## Travail attendu
 
