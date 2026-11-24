@@ -52,3 +52,6 @@ L'interface rencontre volontairement une erreur CORS initiale. Les identifiants 
 Voir `SUJET.md` pour l'énoncé, les cas détaillés et les critères d'acceptation. Les fichiers `exemples/` contiennent des données fictives.
 
 **Attention :** l'installation de base ne doit pas être présentée comme validée par une compilation CI complète tant qu'elle n'a pas été exécutée dans l'environnement de l'établissement.
+## Reproductibilité de l'environnement initial
+
+Les dépendances frontend sont décrites dans `frontend/package.json`, mais aucun `package-lock.json` n'est livré dans cette première version. Les commandes `npm install`/`npm run build` ne constituent donc **pas encore une installation strictement déterministe**. Un verrouillage des dépendances et une recette CI complète devront être validés avant utilisation en certification blanche à grande échelle. La correction de ce point ne doit pas conduire à modifier les composants Angular imposés.
