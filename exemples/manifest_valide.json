@@ -1,0 +1,16 @@
+{
+  "shipments": [
+    {
+      "trackingCode": "LT-TLN-0201",
+      "productName": "Fruits rouges",
+      "minTempC": 0,
+      "maxTempC": 4
+    },
+    {
+      "trackingCode": "LT-MRS-0202",
+      "productName": "Légumes frais",
+      "minTempC": 3,
+      "maxTempC": 7
+    }
+  ]
+}

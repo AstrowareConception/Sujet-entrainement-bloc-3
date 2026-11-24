@@ -1,0 +1,16 @@
+{
+  "shipments": [
+    {
+      "trackingCode": "LT-TLN-0203",
+      "productName": "Yaourts",
+      "minTempC": 0,
+      "maxTempC": 6
+    },
+    {
+      "trackingCode": "LT-VAL-0182",
+      "productName": "Doublon volontaire",
+      "minTempC": 0,
+      "maxTempC": 4
+    }
+  ]
+}

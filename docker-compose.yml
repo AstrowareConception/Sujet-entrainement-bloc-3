@@ -1,0 +1,14 @@
+# EXERCICE : compléter l'orchestration des trois services.
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: logitemp
+      POSTGRES_USER: logitemp
+      POSTGRES_PASSWORD: logitemp_dev
+    ports:
+      - "5432:5432"
+    # TODO : healthcheck PostgreSQL (pg_isready), volume de données persistant.
+  # TODO : backend (build, variables DB_URL/DB_USER/DB_PASSWORD, dépendance saine, ports 8080)
+  # TODO : frontend (build, ports 8081:80, dépendance API)
+# TODO : déclarer les volumes persistants.

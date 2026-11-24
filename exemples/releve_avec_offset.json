@@ -1,0 +1,6 @@
+{
+  "shipmentId": 1,
+  "temperatureC": 3.4,
+  "humidityPct": 72.5,
+  "measuredAt": "2026-07-14T11:30:00+02:00"
+}

@@ -1,0 +1,40 @@
+# Canevas de CI. La publication d'images est volontairement incomplète.
+stages: [build, test, lint, publish]
+
+build_api:
+  stage: build
+  image: maven:3.9.9-eclipse-temurin-21
+  script: ["cd backend", "mvn -B -DskipTests package"]
+
+build_ui:
+  stage: build
+  image: node:20-alpine
+  script: ["cd frontend", "npm install --no-audit --no-fund", "npm run build"]
+
+tests_api:
+  stage: test
+  image: maven:3.9.9-eclipse-temurin-21
+  script: ["cd backend", "mvn -B test"]
+
+lint_api:
+  stage: lint
+  image: maven:3.9.9-eclipse-temurin-21
+  script: ["cd backend", "mvn -B checkstyle:check"]
+
+lint_ui:
+  stage: lint
+  image: node:20-alpine
+  script: ["cd frontend", "npm install --no-audit --no-fund", "npm run lint", "npm run typecheck"]
+
+publish_images:
+  stage: publish
+  image: docker:27-cli
+  services: ["docker:27-dind"]
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
+  variables:
+    DOCKER_HOST: tcp://docker:2375
+    DOCKER_TLS_CERTDIR: ""
+  script:
+    - echo "À COMPLÉTER - authentification registre GitLab, docker build, docker push"
+    - exit 1
