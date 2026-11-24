@@ -1,0 +1,16 @@
+{
+  "shipments": [
+    {
+      "trackingCode": "LT-ANT-1001",
+      "productName": "Produits biologiques",
+      "minTempC": 2,
+      "maxTempC": 8
+    },
+    {
+      "trackingCode": "LT-NIC-1002",
+      "productName": "Produits frais",
+      "minTempC": 9,
+      "maxTempC": 4
+    }
+  ]
+}
